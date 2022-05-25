@@ -9,7 +9,7 @@
 
 <h3 align="center">Built With: </h3>
 
-<ul>
+<ul align="center">
   <li>JavaScript - Canvas API</li>
   <li>HTML</li>
   <li>CSS</li>
