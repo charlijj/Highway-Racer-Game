@@ -1,5 +1,3 @@
-<div id="top"></div>
-
 <h2 align="center">Highway Racer Game</h2>
 
 
@@ -18,11 +16,3 @@
 <br />
 
 <h3 align="center">Licence: Apache License 2.0</h3>
-
-<a href="#top"></a>
-
-
-
-
-
-
