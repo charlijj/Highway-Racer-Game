@@ -14,6 +14,10 @@ window.addEventListener(`load`, function ()
     {
         this.window.localStorage.setItem(`prevScore`, 0);
     }
+    if (this.window.localStorage.getItem(`highScore`) == null)
+    {
+        this.window.localStorage.setItem(`highScore`, 0);
+    }
     menu.innerHTML = `<div id="menuScore"><p id="yourScore">Your Score: &nbsp; ` + this.window.localStorage.getItem(`prevScore`) + `</p><p id="highScore">High Score: &nbsp; ` + this.window.localStorage.getItem(`highScore`) +`</p></div>`;
 
     mainCVS.width = 800;
