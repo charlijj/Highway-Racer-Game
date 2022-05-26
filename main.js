@@ -140,36 +140,35 @@ window.addEventListener(`load`, function ()
 
             context.fillRect(this.x, this.y, this.width, this.height);
 
-            // console.log(`x player: ` + Math.ceil(this.x / 100) * 100)
-            // console.log(`y player: ` + Math.ceil(this.y / 100) * 100)
-            // console.log(`x car: ` + Math.round(enemy.carX))
-            // console.log(`y car: ` + Math.round(enemy.carY));
-
-            if ((this.x > Math.round(enemy.carX) && this.x < Math.round(enemy.carX) + enemy.carWidth) && (this.y > Math.round(enemy.carY) && this.y < Math.round(enemy.carY) + enemy.carHeight))
+            if (((this.x > Math.round(enemy.carX) && this.x < Math.round(enemy.carX) + enemy.carWidth) || (this.x + this.width > Math.round(enemy.carX) && this.x + this.width < Math.round(enemy.carX) + enemy.carWidth))
+                && (this.y > Math.round(enemy.carY) && this.y < Math.round(enemy.carY) + enemy.carHeight))
             {
                 this.die = true;
                 endGame(context);
             }
 
-            else if ((this.x > Math.round(enemy.semiTruckX) && this.x < Math.round(enemy.semiTruckX) + enemy.semiTruckWidth) && (this.y > Math.round(enemy.semiTruckY) && this.y < Math.round(enemy.semiTruckY) + enemy.semiTruckHeight))
+            else if (((this.x > Math.round(enemy.semiTruckX) && this.x < Math.round(enemy.semiTruckX) + enemy.semiTruckWidth) || (this.x + this.width > Math.round(enemy.semiTruckX) && this.x + this.width < Math.round(enemy.semiTruckX) + enemy.semiTruckWidth))
+                    && (this.y > Math.round(enemy.semiTruckY) && this.y < Math.round(enemy.semiTruckY) + enemy.semiTruckHeight))
             {
                 this.die = true;
                 endGame(context);
             }
 
-            else if ((this.x > Math.round(enemy.motorcycleX) - 10 && this.x < Math.round(enemy.motorcycleX) + enemy.motorcycleWidth + 10) && (this.y > Math.round(enemy.motorcycleY) && this.y < Math.round(enemy.motorcycleY) + enemy.motorcycleHeight))
+            else if (((this.x > Math.round(enemy.motorcycleX - 10) && this.x < Math.round(enemy.motorcycleX + 10) + enemy.motorcycleWidth) || (this.x + this.width > Math.round(enemy.motorcycleX - 10) && this.x + this.width < Math.round(enemy.motorcycleX + 10) + enemy.motorcycleWidth))
+                    && (this.y > Math.round(enemy.motorcycleY) && this.y < Math.round(enemy.motorcycleY) + enemy.motorcycleHeight))
             {
                 this.die = true;
                 endGame(context);
             }
             
-            else if ((this.x > Math.round(enemy.vanX) && this.x < Math.round(enemy.vanX) + enemy.vanWidth) && (this.y > Math.round(enemy.vanY) && this.y < Math.round(enemy.vanY) + enemy.vanHeight))
+            else if (((this.x > Math.round(enemy.vanX) && this.x < Math.round(enemy.vanX) + enemy.vanWidth) || (this.x + this.width > Math.round(enemy.vanX) && this.x + this.width < Math.round(enemy.vanX) + enemy.vanWidth))
+                    && (this.y > Math.round(enemy.vanY) && this.y < Math.round(enemy.vanY) + enemy.vanHeight))
             {
                 this.die = true;
                 endGame(context);
             }
 
-            else if (this.x < 33 || this.x > this.gameWidth - 73)
+            else if (this.x < 33 || this.x > this.gameWidth - 33 - this.width/2)
             {
                 this.die = true;
                 endGame(context);
@@ -475,7 +474,6 @@ window.addEventListener(`load`, function ()
 
     function startStop ()
     {
-
         const startStopButton = document.getElementById(`startStopButton`);
         
         if (startStopButton.value === `Stop`)
@@ -488,7 +486,6 @@ window.addEventListener(`load`, function ()
             startStopButton.value = `Stop`;
             loadGame();
         }
-
     }
 
     function loadGame () {
