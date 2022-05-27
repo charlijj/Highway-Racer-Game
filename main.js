@@ -5,11 +5,16 @@ window.addEventListener(`load`, function ()
     const mainCVS = document.getElementById(`mainCanvas`);
     const ctx = mainCVS.getContext(`2d`);
 
-
     const startStopButton = document.getElementById(`startStopButton`);
     startStopButton.addEventListener(`click`, () => {startStop()})
 
+    const pressStart = document.getElementById(`pressStart`);
+    pressStart.style.opacity = `1`;
+    pressStart.style.fontSize = `70px`;
+
+
     const menu = document.getElementById(`menu`);
+
     if (this.window.localStorage.getItem(`prevScore`) == null)
     {
         this.window.localStorage.setItem(`prevScore`, 0);
@@ -479,19 +484,22 @@ window.addEventListener(`load`, function ()
         if (startStopButton.value === `Stop`)
         {
             startStopButton.value = `Start`;
+            startStopButton.style.backgroundColor = `rgb(200, 200, 200)`;
             deconstructGame ();
         }
         else
         {
             startStopButton.value = `Stop`;
+            startStopButton.style.backgroundColor = `rgb(255, 70, 70)`;
             loadGame();
         }
     }
 
     function loadGame () {
 
-        const menu = document.getElementById(`menu`);
         menu.style.opacity = `0`;
+        pressStart.style.opacity = `0`;
+        pressStart.style.fontSize = `70px`;
 
         const input = new InputHandler();
         const player = new Player(mainCVS.width, mainCVS.height);
