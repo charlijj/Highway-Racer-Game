@@ -146,28 +146,28 @@ window.addEventListener(`load`, function ()
             context.fillRect(this.x, this.y, this.width, this.height);
 
             if (((this.x > Math.round(enemy.carX) && this.x < Math.round(enemy.carX) + enemy.carWidth) || (this.x + this.width > Math.round(enemy.carX) && this.x + this.width < Math.round(enemy.carX) + enemy.carWidth))
-                && (this.y > Math.round(enemy.carY) && this.y < Math.round(enemy.carY) + enemy.carHeight))
+                && ((this.y > Math.round(enemy.carY) && this.y < Math.round(enemy.carY) + enemy.carHeight) || (this.y + this.height > Math.round(enemy.carY) && this.y + this.height < Math.round(enemy.carY) + enemy.carHeight)))
             {
                 this.die = true;
                 endGame(context);
             }
 
             else if (((this.x > Math.round(enemy.semiTruckX) && this.x < Math.round(enemy.semiTruckX) + enemy.semiTruckWidth) || (this.x + this.width > Math.round(enemy.semiTruckX) && this.x + this.width < Math.round(enemy.semiTruckX) + enemy.semiTruckWidth))
-                    && (this.y > Math.round(enemy.semiTruckY) && this.y < Math.round(enemy.semiTruckY) + enemy.semiTruckHeight))
+                    && ((this.y > Math.round(enemy.semiTruckY) && this.y < Math.round(enemy.semiTruckY) + enemy.semiTruckHeight) || (this.y + this.height > Math.round(enemy.semiTruckY) && this.y + this.height < Math.round(enemy.semiTruckY) + enemy.semiTruckHeight)))
             {
                 this.die = true;
                 endGame(context);
             }
 
             else if (((this.x > Math.round(enemy.motorcycleX - 10) && this.x < Math.round(enemy.motorcycleX + 10) + enemy.motorcycleWidth) || (this.x + this.width > Math.round(enemy.motorcycleX - 10) && this.x + this.width < Math.round(enemy.motorcycleX + 10) + enemy.motorcycleWidth))
-                    && (this.y > Math.round(enemy.motorcycleY) && this.y < Math.round(enemy.motorcycleY) + enemy.motorcycleHeight))
+                    && ((this.y > Math.round(enemy.motorcycleY) && this.y < Math.round(enemy.motorcycleY) + enemy.motorcycleHeight) || (this.y + this.height > Math.round(enemy.motorcycleY) && this.y + this.height < Math.round(enemy.motorcycleY) + enemy.motorcycleHeight)))
             {
                 this.die = true;
                 endGame(context);
             }
             
             else if (((this.x > Math.round(enemy.vanX) && this.x < Math.round(enemy.vanX) + enemy.vanWidth) || (this.x + this.width > Math.round(enemy.vanX) && this.x + this.width < Math.round(enemy.vanX) + enemy.vanWidth))
-                    && (this.y > Math.round(enemy.vanY) && this.y < Math.round(enemy.vanY) + enemy.vanHeight))
+                    && ((this.y > Math.round(enemy.vanY) && this.y < Math.round(enemy.vanY) + enemy.vanHeight) || (this.y + this.height > Math.round(enemy.vanY) && this.y + this.height < Math.round(enemy.vanY) + enemy.vanHeight)))
             {
                 this.die = true;
                 endGame(context);
