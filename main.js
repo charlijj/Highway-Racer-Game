@@ -127,8 +127,8 @@ window.addEventListener(`load`, function ()
             this.gameHeight = gameHeight;
             this.width = 40;
             this.height = 150;
-            this.x = 50;
-            this.y = this.gameHeight - this.height;
+            this.x = gameWidth/2 - this.width/2;
+            this.y = this.gameHeight - this.height*2;
             this.speed = 0;
             this.yVelocity = 0;
 
@@ -334,9 +334,9 @@ window.addEventListener(`load`, function ()
             }
 
             this.drawCar(context);
-            this.drawMotorcycle(context);
             this.drawSemiTruck(context);
             this.drawVan(context);  
+            this.drawMotorcycle(context);
 
         }
 
