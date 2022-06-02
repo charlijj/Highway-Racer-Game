@@ -20,4 +20,6 @@
 <p align="center">Press play in the top left corner.</p>
 <p align="center">Move with the arrow keys or WASD and doge the oncomming traffic for as long as possible.</p>
 
+<br />
+
 <h3 align="center">Licence: Apache License 2.0</h3>
