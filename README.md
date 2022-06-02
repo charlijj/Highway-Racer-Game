@@ -1,5 +1,7 @@
 <h2 align="center">Highway Racer Game</h2>
 
+![alt text](https://github.com/charlijj/portfolio/img/gameBackground.jpg)
+
 
 <h3 align="center">About: </h3>
 <p align="center">A simple 2D game where the player weaves through traffic on a busy highway and dodges the other cars on the road. The player can move using the arrow keys or WASD. </p>
