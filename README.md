@@ -1,6 +1,6 @@
 <h2 align="center">Highway Racer Game</h2>
 
-![alt text](https://github.com/charlijj/portfolio/img/gameBackground.jpg)
+![alt text](https://github.com/charlijj/portfolio/blob/main/img/gameBackground.jpg)
 
 
 <h3 align="center">About: </h3>
