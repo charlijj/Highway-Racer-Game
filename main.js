@@ -7,11 +7,11 @@ window.addEventListener(`load`, function ()
 
     const startStopButton = document.getElementById(`startStopButton`);
     startStopButton.addEventListener(`click`, () => {startStop()})
+    window.addEventListener(`keypress`, (event) => {if (event.key == ` `) {startStop()}});
 
     const pressStart = document.getElementById(`pressStart`);
     pressStart.style.opacity = `1`;
     pressStart.style.fontSize = `70px`;
-
 
     const menu = document.getElementById(`menu`);
 
@@ -159,7 +159,7 @@ window.addEventListener(`load`, function ()
                 endGame(context);
             }
 
-            else if (((this.x > Math.round(enemy.motorcycleX - 10) && this.x < Math.round(enemy.motorcycleX + 10) + enemy.motorcycleWidth) || (this.x + this.width > Math.round(enemy.motorcycleX - 10) && this.x + this.width < Math.round(enemy.motorcycleX + 10) + enemy.motorcycleWidth))
+            else if (((this.x > Math.round(enemy.motorcycleX) && this.x < Math.round(enemy.motorcycleX) + enemy.motorcycleWidth) || (this.x + this.width > Math.round(enemy.motorcycleX) && this.x + this.width < Math.round(enemy.motorcycleX) + enemy.motorcycleWidth))
                     && ((this.y > Math.round(enemy.motorcycleY) && this.y < Math.round(enemy.motorcycleY) + enemy.motorcycleHeight) || (this.y + this.height > Math.round(enemy.motorcycleY) && this.y + this.height < Math.round(enemy.motorcycleY) + enemy.motorcycleHeight)))
             {
                 this.die = true;
@@ -326,10 +326,10 @@ window.addEventListener(`load`, function ()
 
             if (this.spawnTimeout)
             {
-                this.carY -= 500;
-                this.motorcycleY -= 1000;
-                this.semiTruckY -= 500;
-                this.vanY -= 500;
+                this.carY -= 1000;
+                this.motorcycleY -= 2000;
+                this.semiTruckY -= 1000;
+                this.vanY -= 1000;
                 this.spawnTimeout = false;
             }
 
@@ -479,7 +479,6 @@ window.addEventListener(`load`, function ()
 
     function startStop ()
     {
-        const startStopButton = document.getElementById(`startStopButton`);
         
         if (startStopButton.value === `Stop`)
         {
