@@ -5,6 +5,29 @@ window.addEventListener(`load`, function ()
     const mainCVS = document.getElementById(`mainCanvas`);
     const ctx = mainCVS.getContext(`2d`);
 
+    // Audio component code
+    const audioCtx = new AudioContext();
+
+    const gainNode = audioCtx.createGain();
+    gainNode.gain.setValueAtTime(0.40, audioCtx.currentTime);
+
+    const racingSoundtrack = new Audio(`sound/racing-soundtrack.mp3`);
+    const crashSound = new Audio(`sound/crash-sound-effect.mp3`);
+    const menuSoundtrack = new Audio(`sound/menu-soundtrack.mp3`);
+
+    let racingSoundtrackSource = audioCtx.createMediaElementSource(racingSoundtrack); 
+    let crashSoundSource = audioCtx.createMediaElementSource(crashSound); 
+    let menuSoundtrackSource = audioCtx.createMediaElementSource(menuSoundtrack); 
+
+    racingSoundtrackSource.connect(gainNode);
+    crashSoundSource.connect(gainNode);
+    menuSoundtrackSource.connect(gainNode);
+
+    gainNode.connect(audioCtx.destination);
+
+    menuSoundtrack.play();
+
+    // -------------------------------------------------------------------------------
     const startStopButton = document.getElementById(`startStopButton`);
     startStopButton.addEventListener(`click`, () => {startStop()})
     window.addEventListener(`keypress`, (event) => {if (event.key == ` `) {startStop()}});
@@ -473,7 +496,9 @@ window.addEventListener(`load`, function ()
             window.localStorage.setItem(`highScore`, score)
         }
 
-        startStop();
+        crashSound.play();
+
+        setTimeout(startStop, 1000);
 
     }
 
@@ -499,6 +524,8 @@ window.addEventListener(`load`, function ()
         menu.style.opacity = `0`;
         pressStart.style.opacity = `0`;
         pressStart.style.fontSize = `70px`;
+
+        racingSoundtrack.play();
 
         const input = new InputHandler();
         const player = new Player(mainCVS.width, mainCVS.height);
